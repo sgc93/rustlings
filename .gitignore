@@ -1,0 +1,31 @@
+# Ignore Rust/Cargo build output
+/target/
+
+# Ignore compiled executables and debug info produced by `rustc` - on windows
+*.exe
+*.pdb
+
+# Native library files
+*.dll
+*.so
+*.dylib
+*.lib
+
+# Editor/IDE directories and files
+.vscode/
+.idea/
+
+# Misc OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+
+# If you create multiple independent Cargo projects (apps) you may want to keep
+# `Cargo.lock` for reproducible application builds. For libraries, it's common
+# to NOT commit `Cargo.lock`.
+# Uncomment the next line if you prefer not to commit any Cargo.lock files:
+# Cargo.lock
+.exe
