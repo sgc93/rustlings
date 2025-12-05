@@ -27,5 +27,5 @@ desktop.ini
 # `Cargo.lock` for reproducible application builds. For libraries, it's common
 # to NOT commit `Cargo.lock`.
 # Uncomment the next line if you prefer not to commit any Cargo.lock files:
-Cargo.lock
+# Cargo.lock
 .exe
