@@ -1,31 +1,54 @@
-# Ignore Rust/Cargo build output
-*/target/
+# ================================
+# Rust / Cargo
+# ================================
+target/
+**/*.rs.bk
+Cargo.lock.temp
 
-# Ignore compiled executables and debug info produced by `rustc` - on windows
+# Cargo.lock # Uncomment this one if this is a library crate
+
+# ================================
+# Compiled binaries & debug symbols
+# ================================
 *.exe
-*.pdb
-
-# Native library files
 *.dll
 *.so
 *.dylib
 *.lib
+*.pdb
+*.dSYM/
 
-# Editor/IDE directories and files
+# ================================
+# IDE / Editors
+# ================================
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Misc OS files
+# ================================
+# OS files
+# ================================
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Logs and temporary files
+# ================================
+# Logs & temp
+# ================================
 *.log
+tmp/
+temp/
 
-# If you create multiple independent Cargo projects (apps) you may want to keep
-# `Cargo.lock` for reproducible application builds. For libraries, it's common
-# to NOT commit `Cargo.lock`.
-# Uncomment the next line if you prefer not to commit any Cargo.lock files:
-# Cargo.lock
-.exe
+# ================================
+# Rust Analyzer / Tooling
+# ================================
+.ra/
+rust-analyzer.log
+
+# ================================
+# Environment files
+# ================================
+.env
+.env.local
+.env.production
