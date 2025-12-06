@@ -1,3 +1,17 @@
+
+const SPACES: u32 = 1000; // compile-time value
+
 fn main() {
-    println!("Hello, world!");
+    println!("The value of SPACES is {SPACES}.");
+
+    // shadowing constants
+    let spaces = 50; // spaces is bound to the memory that holds 50
+    println!("The value of spaces is {spaces}.");
+
+    let x = "length";
+    println!("The value of x is {x}.");
+
+    // shadowing vars
+    let x = x.len();  // the above x is shadowed by this one so it is hidden or inaccessible in this SCOPE.
+    println!("The value of x is {x}.");
 }
