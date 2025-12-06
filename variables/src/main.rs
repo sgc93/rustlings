@@ -1,11 +1,11 @@
-const SPACES: u32 = 1000; // compile-time value
+const MAX: u32 = 1000; // compile-time value
 
 fn main() {
-    println!("The value of SPACES is {SPACES}.");
+    println!("The value of MAX is {MAX}.");
 
     // shadowing constants
-    let spaces = 50; // spaces is bound to the memory that holds 50
-    println!("The value of spaces is {spaces}.");
+    let max = MAX + 50; // max is bound to the memory that holds 50 + 1000
+    println!("The value of max is {}.", {max});
 
     let x = "length";
     println!("The value of x is {x}.");
