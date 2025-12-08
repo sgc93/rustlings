@@ -1,0 +1,6 @@
+[package]
+name = "fahrenheit_to_celsius"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
