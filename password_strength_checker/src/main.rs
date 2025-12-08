@@ -57,10 +57,12 @@ fn check_password(password: String) {
         println!("❌ Doesn't Contain Symbols.")
     }
 
-    if is_length_strong && contain_caps && contain_lowers && contain_number && contain_symbol{
-        println!("\n----------------------------\n🔥 Your Password is Strong!")
-    } else {
-        println!("\n----------------------------\n🟡 Update it a bit!")
+    // scoring
+    let _score = [is_length_strong, contain_caps, contain_lowers, contain_number, contain_symbol].iter().filter(|&&p| p).count();
+    match _score {
+        5 => println!("\n..............................\n🔥 Strong Password!"),
+        3..=4 => println!("\n..............................\n🟡 Medium Strength Password!"),
+        _ => println!("\n..............................\n❌ Bro ths isn't Password!"),
     }
 }
 
