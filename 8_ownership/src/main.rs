@@ -4,6 +4,14 @@ fn display_title(title: &str) {
 
 fn make_name_full(title: &mut String) {
     title.push_str(" Too IV");
+
+    // display_full_name(title);
+}
+
+fn display_full_name(name: &mut String) {
+    name.push_str(" or Dr Too the fourth");
+
+    println!("My full name is: {}.", name);
 }
 
 fn main() {
@@ -42,6 +50,8 @@ fn main() {
         println!("Title: {}", title);
 
         make_name_full(&mut title);
+        display_full_name(&mut title);
+
         println!("Full name: {}", title);
     } // title ends here and droped the heap value since it owns it
 }
