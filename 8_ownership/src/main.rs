@@ -1,3 +1,11 @@
+fn display_title(title: &str) {
+    println!("My title is {}", title)
+} // title will not dropped the value because it doesn't own it -> it just borrows
+
+fn make_name_full(title: &mut String) {
+    title.push_str(" Too IV");
+}
+
 fn main() {
     // Heap Allocation
     {
@@ -8,7 +16,7 @@ fn main() {
         println!("Str2: {}", str2);
     } // str2 Dropped - it's no more valid -> happened by the rust+type at language level -> programatically with drop trait like RAII in c++
     // No DOUBLE FREE! since str1 is already dropped as soon as it is moved to str2
-    
+
     // Read-only static/program memory
     {
         let str1 = "PI=3.14"; // Allocation: str1 borrowed reference on stack and points value store in read-only program memory when the program starts -> value is stored on neither stack nor heap
@@ -27,11 +35,15 @@ fn main() {
         println!("y: {y}."); // y: 3.14.
     } // Both x and y are Deallocated! (not dropped - no destructor) -> stack pointer moves back -> happes in cpu automatically at hardware level
 
-    // Dangling pointer
-    let s = String::from("Hello");
-    let r = &s;
-    // drop(s); //FIXME <- Cannot move out of s since it is borrowed by r
-    println!("{}", r);
+    // Borrowing
+    {
+        let mut title = String::from("Dr");
+        display_title(&title);
+        println!("Title: {}", title);
+
+        make_name_full(&mut title);
+        println!("Full name: {}", title);
+    } // title ends here and droped the heap value since it owns it
 }
 
 /*
