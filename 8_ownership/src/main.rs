@@ -26,4 +26,23 @@ fn main() {
         println!("x: {x}."); // x: 3.14.
         println!("y: {y}."); // y: 3.14.
     } // Both x and y are Deallocated! (not dropped - no destructor) -> stack pointer moves back -> happes in cpu automatically at hardware level
+
+    // Dangling pointer
+    let s = String::from("Hello");
+    let r = &s;
+    // drop(s); //FIXME <- Cannot move out of s since it is borrowed by r
+    println!("{}", r);
 }
+
+/*
+Solutions in Rust for Memory-freeing Bugs
+'''''''''''''''''''''''''''''''''''''''''
+1. Double Free -> "There is only a single owner of a heap data"
+2. Use After Free | Dangling Pointer -> "A value cannot be freed/dropped while references/borrowers to it exists"
+    let s = String::from("Hello");
+    let r = &s;
+    drop(s); // Compile time error since r borrows s
+    println!("{}", r);
+3. Memory Leak | Never Freeing Memory -> "Every owned value in the heap is dropped exacly once at the end of the scope"
+4. Invalid Free -> "Only owner can free a memory, and via Drop"
+*/
