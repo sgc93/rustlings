@@ -1,5 +1,5 @@
 [package]
-name = "1_hello_cargo"
+name = "hello_cargo"
 version = "0.1.0"
 edition = "2024"
 
